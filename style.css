@@ -35,24 +35,40 @@
 }
 
 .grid-element {
-    background-color: gray;
-    border: 2.5px solid black;
-    height: 100px;
-    width: 100px;
+    background-color: white;
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
 }
 
 .clicked-grid-element {
     background-color: black;
 }
+   
 
 #buttons-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+    background-color: lightseagreen;
 }
 
 .btn {
-    height: 50px;
-    width: 100px;
-    font-size: 18px;
+    height: 100px;
+    width: 200px;
+    font-size: 24px;
+    background-color: lightblue;
+    border: 5px solid whitesmoke;
+    border-radius: 10px;
 }
 
+.selected-button {
+    height: 100px;
+    width: 200px;
+    font-size: 24px;
+    background-color: rgb(105, 157, 189);
+    border: 5px solid whitesmoke;
+    border-radius: 10px;
+}

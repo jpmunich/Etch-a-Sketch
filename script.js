@@ -1,8 +1,17 @@
 const gridContainer = document.getElementById("grid-element-container");
 const drawButton = document.getElementById("draw-button");
 const eraseButton = document.getElementById("erase-button");
+const colorButton = document.getElementById("color-button");
 let isDrawClicked = false;
 let isEraseClicked = false;
+let isColorClicked = false;
+
+// Generate Random Color 
+const red = Math.floor(Math.random() * 255);
+const green = Math.floor(Math.random() * 255);
+const blue = Math.floor(Math.random() * 255);
+
+console.log(red + green + blue);
 
 function makeGridPiece() {
     const gridElement = document.createElement("div");
@@ -20,16 +29,33 @@ function makeGrid(size) {
     }
 }
 
-makeGrid(25);
+makeGrid(100);
 
 drawButton.addEventListener("click", function() {
     isDrawClicked = true;
+    drawButton.classList.add("selected-button");
+    eraseButton.classList.remove("selected-button");
+    colorButton.classList.remove("selected-button");
     isEraseClicked = false;
+    isColorClicked = false;
 })
 
 eraseButton.addEventListener("click", function() {
     isEraseClicked = true;
+    eraseButton.classList.add("selected-button");
+    drawButton.classList.remove("selected-button");
+    colorButton.classList.remove("selected-button");
     isDrawClicked = false;
+    isColorClicked = false;
+})
+
+colorButton.addEventListener("click", function() {
+    isColorClicked = true;
+    colorButton.classList.add("selected-button");
+    eraseButton.classList.remove("selected-button");
+    drawButton.classList.remove("selected-button");
+    isDrawClicked = false;
+    isEraseClicked = false;
 })
 
 for (let i = 0; i < gridElementsList.length; i++) {
@@ -37,11 +63,13 @@ for (let i = 0; i < gridElementsList.length; i++) {
         if (isDrawClicked) {
         gridElementsList[i].classList.add("clicked-grid-element");
         }
-    })
 
-    gridElementsList[i].addEventListener("click", function() {
         if (isEraseClicked) {
-        gridElementsList[i].classList.remove("clicked-grid-element");
+            gridElementsList[i].classList.remove("clicked-grid-element");
+            }
+
+        if (isColorClicked) {
+            gridElementsList[i].style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
         }
     })
 }
