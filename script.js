@@ -7,21 +7,10 @@ let isEraseClicked = false;
 let isColorClicked = false;
 
 // Generate Random Color 
-function generateRandomRed() {
-    const red = Math.floor(Math.random() * 255);
-    return red;
+function generateRandomColor() {
+    const color = Math.floor(Math.random() * 255);
+    return color;
 }
-function generateRandomGreen() {
-    const green = Math.floor(Math.random() * 255);
-    return green;
-}
-
-function generateRandomBlue() {
-    const blue = Math.floor(Math.random() * 255);
-    return blue;
-}
-
-console.log(generateRandomBlue());
 
 function makeGridPiece() {
     const gridElement = document.createElement("div");
@@ -79,9 +68,9 @@ for (let i = 0; i < gridElementsList.length; i++) {
             }
 
         if (isColorClicked) {
-            const red = generateRandomRed();
-            const green = generateRandomGreen();
-            const blue = generateRandomBlue();
+            const red = generateRandomColor();
+            const green = generateRandomColor();
+            const blue = generateRandomColor();
             gridElementsList[i].style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
         }
     })
