@@ -1,3 +1,4 @@
+// Reference elements
 const gridContainer = document.getElementById("grid-element-container");
 const drawButton = document.getElementById("draw-button");
 const eraseButton = document.getElementById("erase-button");
@@ -6,7 +7,7 @@ let isDrawClicked = false;
 let isEraseClicked = false;
 let isColorClicked = false;
 
-// Generate Random Color 
+// Generate random color 
 function generateRandomColor() {
     const color = Math.floor(Math.random() * 255);
     return color;
@@ -58,13 +59,13 @@ colorButton.addEventListener("click", function() {
 })
 
 for (let i = 0; i < gridElementsList.length; i++) {
-    gridElementsList[i].addEventListener("click", function() {
+    gridElementsList[i].addEventListener("mouseover", function() {
         if (isDrawClicked) {
-        gridElementsList[i].classList.add("clicked-grid-element");
+        gridElementsList[i].style.backgroundColor = "rgb(0,0,0)";
         }
 
         if (isEraseClicked) {
-            gridElementsList[i].classList.remove("clicked-grid-element");
+                gridElementsList[i].style.backgroundColor = "rgb(255,255,255)";
             }
 
         if (isColorClicked) {
